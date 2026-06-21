@@ -353,29 +353,44 @@ const Footer = () => {
                 </div>
               </div>
               {/* Submit Row */}
-              <div className="flex items-center cursor-pointer rounded-4xl hover:cursor-pointer w-fit bg-[#c8f400] hover:bg-white justify-between mt-2">
-                <button className="flex items-center gap-0 group cursor-pointer">
-                  <span className="text-black font-semibold text-base px-7 py-4 rounded-full transition-colors duration-200">
-                    Submit Now
-                  </span>
-                  <span className="w-12 h-12 rounded-full bg-[#111] border border-[#2a2a2a] hover:border-none flex items-center justify-center group-hover:bg-[#c8f400] transition-colors duration-200">
-                    <svg
-                      className="text-white group-hover:text-black"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <line x1="7" y1="17" x2="17" y2="7" />
-                      <polyline points="7 7 17 7 17 17" />
-                    </svg>
-                  </span>
-                </button>
-              </div>
+          
+<div className="flex items-center cursor-pointer rounded-4xl hover:cursor-pointer w-fit bg-[#c8f400] hover:bg-white justify-between mt-2">
+  <button
+    onClick={() => {
+      if (!email || !phone || !budget) {
+        alert("Please fill in all fields before submitting.");
+        return;
+      }
+
+      const phoneNumber = "923154780106"; // your WhatsApp number
+      const text = `New Project Inquiry%0A%0AEmail: ${email}%0APhone: ${phone}%0ABudget: ${budget}`;
+      const url = `https://wa.me/${phoneNumber}?text=${text}`;
+
+      window.open(url, "_blank");
+    }}
+    className="flex items-center gap-0 group cursor-pointer"
+  >
+    <span className="text-black font-semibold text-base px-7 py-4 rounded-full transition-colors duration-200">
+      Submit Now
+    </span>
+    <span className="w-12 h-12 rounded-full bg-[#111] border border-[#2a2a2a] hover:border-none flex items-center justify-center group-hover:bg-[#c8f400] transition-colors duration-200">
+      <svg
+        className="text-white group-hover:text-black"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="7" y1="17" x2="17" y2="7" />
+        <polyline points="7 7 17 7 17 17" />
+      </svg>
+    </span>
+  </button>
+</div>
             </motion.div>
           </div>
         </div>
@@ -384,9 +399,7 @@ const Footer = () => {
       <p className="text-sm lg:text-lg text-gray-400 mx-auto mt-20 mb-10 text-center max-w-[300px] lg:max-w-[340px]">
         Do You have any concerns before we finalize
       </p>
-      <button className="border-white py-3 mx-auto px-10 mb-20 cursor-pointer border-1 mb-10 text-white">
-        Contact Me
-      </button>
+     
 
       {/* Bottom Cards Section */}
       <div className="w-full max-w-xl mx-auto px-4">
