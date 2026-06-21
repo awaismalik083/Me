@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const PANEL_COUNT = 5;
 
-export default function Template({ children }) {
+export default function Template({ children }: { children: React.ReactNode }) {
   const panels = Array.from({ length: PANEL_COUNT });
 
   return (
